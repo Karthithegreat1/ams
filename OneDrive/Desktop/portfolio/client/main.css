@@ -1,0 +1,248 @@
+/* Existing styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #292727;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  position: relative; /* Added position relative */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section {
+  padding: 20px;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+.photo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  border: 2px solid #876060;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.contact-details {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  color: #fbf3f3;
+}
+
+.contact-details p {
+  margin: 5px 0;
+}
+
+/* Added media query for responsive layout */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 20px; /* Adjusted padding for smaller screens */
+  }
+
+  nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .contact-details {
+    top: 30px; /* Adjusted top position for smaller screens */
+    right: 10px; /* Adjusted right position for smaller screens */
+    font-size: 10px;
+  }
+}
+
+.about-content {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+/* Styles for the educational qualifications section */
+#education {
+  margin-top: 20px; /* Add some space between sections */
+}
+
+#education h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px; /* Increase font size for section heading */
+  color: #333; /* Darken the color for better readability */
+}
+
+#education ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#education li {
+  margin-bottom: 20px; /* Add space between each educational qualification */
+}
+
+#education h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px; /* Increase font size for qualification title */
+  color: #555; /* Darken the color slightly */
+}
+
+#education p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px; /* Use a slightly smaller font size for details */
+  margin: 5px 0; /* Add some vertical margin for spacing */
+  color: #777; /* Use a lighter color for details */
+}
+
+/* Styles for the skills section */
+#skills {
+  margin-top: 20px; /* Add some space between sections */
+}
+
+#skills h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px; /* Increase font size for section heading */
+  color: #333; /* Darken the color for better readability */
+}
+
+#skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#skills li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Use a slightly smaller font size for skills */
+  margin-bottom: 10px; /* Add space between each skill */
+  color: #555; /* Use a slightly darker color for better contrast */
+}
+
+#skills li:before {
+  content: "\2022"; /* Add bullet point before each skill */
+  color: #007bff; /* Use blue color for bullet point */
+  margin-right: 5px; /* Add some space between bullet point and skill text */
+}
+
+/* Soft Skills Section */
+#soft-skills {
+  padding: 20px;
+}
+
+#soft-skills h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#soft-skills p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #666;
+}
+
+#courses {
+  margin-top: 20px; /* Add some space between sections */
+}
+
+#courses h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px; /* Increase font size for section heading */
+  color: #333; /* Darken the color for better readability */
+}
+
+#courses ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#courses li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Use a slightly smaller font size for course names */
+  margin-bottom: 10px; /* Add space between each course */
+  color: #555; /* Use a slightly darker color for better contrast */
+}
+
+#courses li a {
+  color: #007bff; /* Set link color to blue */
+  text-decoration: none; /* Remove underline from links */
+}
+
+#courses li a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+#projects {
+  margin-top: 20px; /* Add some space between sections */
+}
+
+#projects h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px; /* Increase font size for section heading */
+  color: #333; /* Darken the color for better readability */
+}
+
+#projects p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Use a slightly smaller font size for project descriptions */
+  line-height: 1.8; /* Adjust line height for better readability */
+  margin-bottom: 10px; /* Add space below each project description */
+  color: #555; /* Use a slightly darker color for better contrast */
+}
+
+#achievements,
+#plans {
+  margin-top: 20px; /* Add some space between sections */
+}
+
+#achievements h2,
+#plans h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px; /* Increase font size for section heading */
+  color: #333; /* Darken the color for better readability */
+}
+
+#achievements p,
+#plans p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Use a slightly smaller font size for descriptions */
+  line-height: 1.8; /* Adjust line height for better readability */
+  margin-bottom: 10px; /* Add space below each description */
+  color: #555; /* Use a slightly darker color for better contrast */
+}
+
+#achievements li,
+#plans li {
+  margin-bottom: 20px; /* Add space between each item */
+}

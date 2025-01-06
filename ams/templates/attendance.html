@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .attendance-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .attendance-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .attendance-dropdown {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="attendance-container">
+        <h2>Mark Attendance</h2>
+
+        <!-- Search Field for Student ID -->
+        <div class="search-container">
+            <form action="{{ url_for('attendance') }}" method="GET">
+                <input type="text" name="student_id" placeholder="Search by Student ID" required />
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+
+        <!-- Attendance Form -->
+        {% if student %}
+            <form action="{{ url_for('submit_attendance') }}" method="POST">
+                <div>
+                    <label>{{ student[1] }} (ID: {{ student[0] }})</label>
+                    <select name="attendance_{{ student[0] }}" class="attendance-dropdown">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Submit Attendance</button>
+            </form>
+        {% elif request.args.get('student_id') %}
+            <p>No student found with that ID.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

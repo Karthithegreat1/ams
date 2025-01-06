@@ -138,4 +138,4 @@ def student_added():
     return render_template('student_added.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=8000)

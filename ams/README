@@ -1,0 +1,118 @@
+pip install flask==2.0.0 werkzeug==2.0.0
+ mysql -u root -p
+ pip install -r requirements.txt
+ # Attendance Management System
+
+A simple Flask-based application for managing student attendance, marking attendance as "present" or "absent", and sending email notifications for absentees.
+
+## Features:
+- Staff login system
+- Attendance marking for students
+- Search students by ID
+- Mark students as "present" or "absent"
+- Send email notifications to absentees
+- MySQL database for storing students, attendance, and staff data
+
+## Prerequisites:
+Before running the project, make sure you have the following installed on your system:
+- Python 3.x
+- MySQL Server
+- Flask
+- MySQL connector
+- Flask-Mail (for email notifications)
+
+
+2. Set Up Virtual Environment:
+Create a virtual environment to manage dependencies. This will isolate the project’s packages from the global Python environment.
+python -m venv venv
+3. Activate Virtual Environment:
+For Windows:
+venv\Scripts\activate
+
+4. Install Dependencies:
+Install all required Python packages listed in the requirements.txt file.
+pip install -r requirements.txt
+5. Set Up the MySQL Database:
+Make sure MySQL is installed and running on your system.
+5.1. Log into MySQL
+
+mysql -u root -p
+5.2. Create Database and Tables:
+Execute the following SQL commands to create the necessary database and tables.
+
+CREATE DATABASE attendance_system;
+
+USE attendance_system;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    status ENUM('present', 'absent') DEFAULT 'absent'
+);
+
+CREATE TABLE staff (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(50)
+);
+
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    date DATE,
+    status ENUM('present', 'absent') NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+INSERT INTO staff (username, password) VALUES ('staff1', 'password1');
+INSERT INTO students (name, email) VALUES 
+('Karthik', 'karthickmanoharan0@gmail.com'),
+('Jane Smith', 'janesmith@example.com');
+SELECT * FROM attendance;
+
+6. Configure Email Settings:
+Make sure to update the email configuration in app.py with your actual Gmail credentials.
+
+app.config['MAIL_USERNAME'] = 'your-email@gmail.com'
+app.config['MAIL_PASSWORD'] = 'your-email-password'
+Note: It's highly recommended to use an app password for Gmail if you have 2-step verification enabled.
+
+7. Running the Project:
+7.1. Start the Flask Development Server:
+
+flask run
+
+This will start the Flask development server, and you can access the application at http://127.0.0.1:5000/ in your browser.
+
+8. Accessing the Application:
+Visit the login page (/) to log in as a staff member.
+Once logged in, you can mark attendance for students.
+Students' attendance will be recorded in the database, and emails will be sent to any student marked as "absent".
+
+9. Directory Structure:
+
+attendance-management-system/
+│
+├── app.py                  # Main Flask application file
+├── requirements.txt        # Project dependencies
+├── templates/              # HTML templates for the app
+│   ├── login.html
+│   ├── attendance.html
+│   ├── success.html
+│   ├── add_student.html
+│   ├── student_added.html
+│   └── ...
+├── static/                 # CSS, JavaScript, and other static files
+├── venv/                   # Virtual environment (created during setup)
+└── README.md               # This file
+
+
+### Key Points in the README:
+1. **Set up virtual environment**: Instructions to create and activate the virtual environment.
+2. **Install dependencies**: How to install the required Python packages.
+3. **MySQL setup**: SQL queries for creating the database and tables, along with initial data insertion.
+4. **Email configuration**: Instructions for configuring email settings.
+5. **Run the Flask app**: How to start the app and access it through the browser.
+
+Let me know if you'd like to add or modify anything else!
+

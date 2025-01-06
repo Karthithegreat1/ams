@@ -4,57 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #6c5ce7, #0984e3);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #2d3436;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* Animated Gradient Background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #6c5ce7, #00cec9, #fdcb6e, #e17055);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .login-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 350px; /* Adjusted width */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            z-index: 1;
         }
+
+        .login-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
         .login-container h2 {
             text-align: center;
             margin-bottom: 20px;
+            font-size: 1.8rem; /* Slightly smaller font */
+            font-weight: 600;
+            color: #2d3436;
         }
+
         .form-control {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
         }
+
         .form-control label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #636e72;
         }
+
         .form-control input {
-            width: 100%;
-            padding: 8px;
-            font-size: 14px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
+            width: calc(100% - 20px); /* Adjust width to avoid overflow */
+            padding: 10px 15px; /* Adjusted padding */
+            font-size: 14px; /* Smaller font size */
+            border-radius: 8px;
+            border: 1px solid #dfe6e9;
+            background-color: #f5f6fa;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Ensures padding does not affect the width */
         }
+
+        .form-control input:focus {
+            border-color: #0984e3;
+            box-shadow: 0 0 5px rgba(9, 132, 227, 0.5);
+        }
+
+        .form-control input::placeholder {
+            color: #b2bec3;
+        }
+
+        .form-control i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0984e3;
+            font-size: 20px;
+        }
+
         .btn {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
             color: white;
-            padding: 10px;
+            padding: 12px;
             width: 100%;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
+            font-size: 16px; /* Slightly smaller font size */
+            font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
+
         .btn:hover {
-            background-color: #45a049;
+            background: linear-gradient(135deg, #5a4bd6, #00b8b5);
+            transform: translateY(-3px);
         }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
         .alert {
-            color: red;
+            background: #ff7675;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
             font-size: 14px;
             text-align: center;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                width: 80%; /* Slightly increased width for mobile */
+                padding: 20px;
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -68,15 +170,19 @@
         <form action="{{ url_for('login_post') }}" method="POST">
             <div class="form-control">
                 <label for="username">Username</label>
-                <input type="text" name="username" required>
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="Enter your username" required>
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" name="password" required>
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
+    <footer>&copy; 2025 Login Page. All Rights Reserved.</footer>
 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

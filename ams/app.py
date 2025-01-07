@@ -19,7 +19,7 @@ mail = Mail(app)
 
 # MySQL Database Configuration
 db = mysql.connector.connect(
-    host="localhost",
+    host="attendance-system.ct0u6wqa0iss.us-east-1.rds.amazonaws.com",
     user="root",  # Your MySQL username
     password="karthick2002",  # Your MySQL password
     database="attendance_system"
@@ -138,4 +138,4 @@ def student_added():
     return render_template('student_added.html')
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8000)
+    app.run(debug=True,port=6969)
